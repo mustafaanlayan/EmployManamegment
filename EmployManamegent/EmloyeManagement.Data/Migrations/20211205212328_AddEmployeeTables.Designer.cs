@@ -4,14 +4,16 @@ using EmloyeManagement.Data.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EmloyeManagement.Data.Migrations
 {
     [DbContext(typeof(MustafaEmployeManamegentContext))]
-    partial class MustafaEmployeManamegentContextModelSnapshot : ModelSnapshot
+    [Migration("20211205212328_AddEmployeeTables")]
+    partial class AddEmployeeTables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
