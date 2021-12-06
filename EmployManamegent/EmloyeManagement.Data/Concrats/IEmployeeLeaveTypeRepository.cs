@@ -2,7 +2,7 @@
 
 namespace EmloyeManagement.Data.Concrats
 {
-   public interface IEmployeeLeaveTypeRepository:IRepositoryBase<EmployeeLeaveType>
+  public interface IEmployeeLeaveTypeRepository:IRepositoryBase<EmployeeLeaveType>
     {
     }
 }

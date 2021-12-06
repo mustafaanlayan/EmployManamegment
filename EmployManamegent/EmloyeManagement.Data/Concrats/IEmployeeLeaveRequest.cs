@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using EmloyeManagement.Data.DbModel;
+﻿using EmloyeManagement.Data.DbModel;
 
 namespace EmloyeManagement.Data.Concrats
 {

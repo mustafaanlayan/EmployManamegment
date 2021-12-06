@@ -10,6 +10,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using EmployManamegent.Common.Mappings;
+using AutoMapper;
+using EmloyeManagement.Data.Concrats;
+using EmloyeManagement.Data.DbModel;
+using EmloyeManagement.Data.Implemention;
 
 namespace EmployManamegent.UI
 {
@@ -28,6 +33,10 @@ namespace EmployManamegent.UI
             services.AddRazorPages();
             services.AddDbContext<MustafaEmployeManamegentContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
+            services.AddAutoMapper(typeof(Map));
+            services.AddScoped<IEmployeeLeaveAllocationRepository, EmployeLeaveAllocationRepository>();
+            services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
+            services.AddScoped<IEmployeeLeaveRequest, EmployeeLeaveRequestRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
