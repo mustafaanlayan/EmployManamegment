@@ -24,7 +24,7 @@ namespace EmloyeManagement.Data.Implemention
         {
             IQueryable<T> query = dbSet;
             if (filter!=null)
-            query = query.Where(filter);
+                query = query.Where(filter);
             if (includeProperties!=null)
             {
                 foreach (var item in includeProperties.Split(new char[]{','},StringSplitOptions.RemoveEmptyEntries))
@@ -52,15 +52,13 @@ namespace EmloyeManagement.Data.Implemention
             IQueryable<T> query = dbSet;
             if (filter != null)
                 query = query.Where(filter);
-            if (inculudeProperties != null)
+            if (inculudeProperties == null) return query.FirstOrDefault();
+            foreach (var item in inculudeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
             {
-                foreach (var item in inculudeProperties.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries))
-                {
-                    query = query.Include(item);
-                }
+                query = query.Include(item);
             }
 
-           return query.FirstOrDefault();
+            return query.FirstOrDefault();
         }
 
         public void Add(T entity)

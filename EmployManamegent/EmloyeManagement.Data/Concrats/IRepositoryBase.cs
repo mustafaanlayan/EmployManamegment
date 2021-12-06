@@ -11,8 +11,11 @@ namespace EmloyeManagement.Data.Concrats
        T Get(int id);
 
        T GetFirstOrDefault(Expression<Func<T, bool>> filter = null, string inculudeProperties = null);
+      
        void Add(T entity);
+
        void Remove(T entity);
+
        void Update(T entity);
    }
 }
