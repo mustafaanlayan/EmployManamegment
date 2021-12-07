@@ -17,6 +17,13 @@ namespace EmployManamegent.UI.Controller
         }
         public IActionResult Index()
         {
+            var data = _employeeLeaveTypeBusinesEngine.GetAllEmployeeLeaveType();
+            if (data.IsSucces)
+            {
+                var result = data.Data;
+                return View(result);
+            }
+
             return View();
         }
     }
