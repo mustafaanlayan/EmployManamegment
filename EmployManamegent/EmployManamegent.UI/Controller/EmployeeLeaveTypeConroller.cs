@@ -26,5 +26,10 @@ namespace EmployManamegent.UI.Controller
 
             return View();
         }
+
+        public IActionResult Create()
+        {
+            return View();
+        }
     }
 }
