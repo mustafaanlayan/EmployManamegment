@@ -32,6 +32,7 @@ namespace EmployManamegent.UI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
             services.AddRazorPages();
             services.AddDbContext<MustafaEmployeManamegentContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
@@ -39,6 +40,7 @@ namespace EmployManamegent.UI
             //services.AddScoped<IEmployeeLeaveAllocationRepository, EmployeLeaveAllocationRepository>();
             //services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
             //services.AddScoped<IEmployeeLeaveRequest, EmployeeLeaveRequestRepository>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IEmployeeLeaveTypeBusinesEngine, EmployeeLeaveTypeBusinesEngine>();
         }
 
@@ -65,6 +67,10 @@ namespace EmployManamegent.UI
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern:"{controller=Home}/{action=Index}/{id?}"
+                );
                 endpoints.MapRazorPages();
             });
         }
