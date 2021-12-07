@@ -15,6 +15,8 @@ using AutoMapper;
 using EmloyeManagement.Data.Concrats;
 using EmloyeManagement.Data.DbModel;
 using EmloyeManagement.Data.Implemention;
+using EmployManamegent.BusinesEngine.Concrats;
+using EmployManamegent.BusinesEngine.Implemention;
 
 namespace EmployManamegent.UI
 {
@@ -34,9 +36,10 @@ namespace EmployManamegent.UI
             services.AddDbContext<MustafaEmployeManamegentContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
             services.AddAutoMapper(typeof(Map));
-            services.AddScoped<IEmployeeLeaveAllocationRepository, EmployeLeaveAllocationRepository>();
-            services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
-            services.AddScoped<IEmployeeLeaveRequest, EmployeeLeaveRequestRepository>();
+            //services.AddScoped<IEmployeeLeaveAllocationRepository, EmployeLeaveAllocationRepository>();
+            //services.AddScoped<IEmployeeLeaveTypeRepository, EmployeeLeaveTypeRepository>();
+            //services.AddScoped<IEmployeeLeaveRequest, EmployeeLeaveRequestRepository>();
+            services.AddScoped<IEmployeeLeaveTypeBusinesEngine, EmployeeLeaveTypeBusinesEngine>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
