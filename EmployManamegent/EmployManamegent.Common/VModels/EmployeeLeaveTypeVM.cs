@@ -6,9 +6,9 @@ namespace EmployManamegent.Common.VModels
    public class EmployeeLeaveTypeVM:BaseVM
     {
         [Required]
-        public string Name { get; private set; }
-        public int DefaultDays { get;private set; }
-        public DateTime DateCreated { get;private set; }
+        public string Name { get;  set; }
+        public int DefaultDays { get; set; }
+        public DateTime DateCreated { get; set; }
 
         public void SetEmployeeType(string name)
         {

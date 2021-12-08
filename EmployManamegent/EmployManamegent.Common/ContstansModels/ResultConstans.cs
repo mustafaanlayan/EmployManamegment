@@ -8,5 +8,7 @@ namespace EmployManamegent.Common.ContstansModels
    {
        public const string RecordFound = "Kayıt Bulundu";
        public const string RecordNotFound = "Kayıt Bulunamadı";
-   }
+       public const string RecordCreateSuccesFulyy = "Kayıt Başarıyla Gerçekleşti ";
+       public const string RecordCreateNotSuccesFulyy = "Kayıt Gerçekleştirirken Hata Oluştu ";
+    }
 }
