@@ -106,6 +106,30 @@ namespace EmployManamegent.BusinesEngine.Implemention
                 return new Result<EmployeeLeaveTypeVM>(false, ResultConstans.RecordNotFound);
             }
         }
+
+      public Result<EmployeeLeaveTypeVM> EditEmployeeLeaveType(EmployeeLeaveTypeVM model)
+      {
+          if (model != null)
+          {
+              try
+              {
+                  var leaveTypes =
+                      _mapper.Map<EmployeeLeaveTypeVM, EmployeeLeaveType>(model);
+                 _unitOfWork.employeeLeaveType.Update(leaveTypes);
+                  _unitOfWork.Save();
+                  return new Result<EmployeeLeaveTypeVM>(true, ResultConstans.RecordCreateSuccesFulyy);
+              }
+              catch (Exception ex)
+              {
+
+                  return new Result<EmployeeLeaveTypeVM>(false, ResultConstans.RecordCreateNotSuccesFulyy + "->" + ex.Message.ToString());
+              }
+          }
+          else
+          {
+              return new Result<EmployeeLeaveTypeVM>(false, "Parametre Olarak Geçilen Data Boş Olamaz !");
+          }
+      }
         #endregion
     }
 }

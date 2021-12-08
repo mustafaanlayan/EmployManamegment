@@ -17,6 +17,7 @@ namespace EmployManamegent.UI.Controller
         {
             _employeeLeaveTypeBusinesEngine = employeeLeaveTypeBusinesEngine;
         }
+
         public IActionResult Index()
         {
             var data = _employeeLeaveTypeBusinesEngine.GetAllEmployeeLeaveType();
@@ -53,24 +54,46 @@ namespace EmployManamegent.UI.Controller
             {
                 return View();
             }
-            
+
         }
 
         public ActionResult Edit(int id)
         {
-            if (id<0)
+            if (id < 0)
                 return View();
 
             var data = _employeeLeaveTypeBusinesEngine.GetAllEmployeeLeaveType(id);
             if (data.IsSucces)
-            
-                return RedirectToAction("Index");
 
-                return View();
-            
+                return View(data.Data);
+
+            return View();
+
 
         }
-    }
 
-    
+        [ValidateAntiForgeryToken]
+        [HttpPost]
+        public ActionResult Edit(EmployeeLeaveTypeVM model)
+        {
+            if (ModelState.IsValid)
+            {
+                var data = _employeeLeaveTypeBusinesEngine.EditEmployeeLeaveType(model);
+
+                if (data.IsSucces)
+                {
+                    return RedirectToAction("Index");
+                }
+
+                return View(model);
+
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+
+    }
 }
