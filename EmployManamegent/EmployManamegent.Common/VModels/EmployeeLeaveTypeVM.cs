@@ -9,6 +9,7 @@ namespace EmployManamegent.Common.VModels
         public string Name { get;  set; }
         public int DefaultDays { get; set; }
         public DateTime DateCreated { get; set; }
+        public bool IsActive { get; set; }
 
         public void SetEmployeeType(string name)
         {

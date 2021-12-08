@@ -130,6 +130,22 @@ namespace EmployManamegent.BusinesEngine.Implemention
               return new Result<EmployeeLeaveTypeVM>(false, "Parametre Olarak Geçilen Data Boş Olamaz !");
           }
       }
+
+        public Result<EmployeeLeaveTypeVM> RemoveEmployeeLeaveType(int id)
+        {
+            var data = _unitOfWork.employeeLeaveType.Get(id);
+            if (data != null)
+            {
+                data.IsActive = false;
+                _unitOfWork.employeeLeaveType.Update(data);
+                _unitOfWork.Save();
+                return new Result<EmployeeLeaveTypeVM>(true, ResultConstans.RecordCreateSuccesFulyy);
+            }
+            else
+            {
+                return new Result<EmployeeLeaveTypeVM>(false, ResultConstans.RecordCreateSuccesFulyy);
+            }
+        }
         #endregion
     }
 }

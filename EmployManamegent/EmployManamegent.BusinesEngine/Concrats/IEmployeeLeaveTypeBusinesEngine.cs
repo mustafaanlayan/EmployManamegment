@@ -19,5 +19,7 @@ namespace EmployManamegent.BusinesEngine.Concrats
        Result<EmployeeLeaveTypeVM> GetAllEmployeeLeaveType(int id);
 
         Result<EmployeeLeaveTypeVM> EditEmployeeLeaveType(EmployeeLeaveTypeVM model);
-   }
+
+        Result<EmployeeLeaveTypeVM> RemoveEmployeeLeaveType(int id);
+    }
 }

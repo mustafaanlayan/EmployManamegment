@@ -39,16 +39,16 @@
                                                 <td>
                                                     <div class="hidden-sm hidden-xs btn-group">
 
-                                                        @* <button class="btn btn-xs btn-info">
-																<i class="ace-icon fa fa-pencil bigger-120"></i>
-															</button> *@
-
-
-                                                        <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.Id"><i class="ace-icon fa fa-pencil bigger-120"></i>
+                                                        
+                                                        <a class="btn btn-info" asp-controller="EmployeeLeaveTypeConroller" asp-action="Edit" asp-route-id="@item.Id"><i class="ace-icon fa fa-pencil bigger-120"></i>
                                                         </a>
-                                                        <button class="btn btn-xs btn-danger">
+                                                        @* <button class="btn btn-xs btn-danger">
                                                             <i class="ace-icon fa fa-trash-o bigger-120"></i>
-                                                        </button>
+                                                        </button>*@
+                                                        <button class="btn btn-xs btn-danger" id="btnRemove" data-id="@item.Id">
+                                                            <i class="ace-icon fa fa-trash bigger-120"></i>
+                                                        </button> 
+
                                                         <button class="btn btn-xs btn-warning">
                                                             <i class="ace-icon fa fa-flag bigger-120"></i>
                                                         </button>
@@ -97,3 +97,36 @@
 									</div><!-- /.span -->
 								</div><!-- /.row -->
 
+@section  Scripts {
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#btnRemove").on("click", function() {
+                var id = $("#btnRemove")(this).dat("id");
+
+                swal({
+                    title:"Silmek İstediğinize Eminmisiniz ?",
+                    text:"Silinen Data Geri Alınamaz...!",
+                    icon:"warning",
+                    buttons:true,
+                    dangerMode:true
+                }).then((whillDelete)=>
+                    {
+                        if(whillDelete) {
+                            $.ajax({
+                                type: "DELETE",
+                                url: "/EmployeeLeaveType/Delete" + id,
+                                success: function(data) {
+                                    if (data.success) {
+                                        toastr.success(data.message);
+                                    } else {
+                                        toastr.error(data.message);
+                                    }
+                                }
+                            });
+                        }
+                    } );
+            } );
+
+
+    </script>
+}

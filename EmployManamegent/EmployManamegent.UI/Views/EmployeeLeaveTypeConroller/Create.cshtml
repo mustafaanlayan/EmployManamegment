@@ -20,7 +20,7 @@
         <label class="col-sm-3 control-label no-padding-right" asp-for="DefaultDays"> Sabit Gün Sayısı </label>
 
         <div class="col-sm-9">
-            <input asp-for="DefaultDays" type="number" min="0" id="form-field-1" placeholder="Sabit Gün Sayısı" class="col-xs-10 col-sm-5"/>
+            <input asp-for="DefaultDays" type="number" min="0" max="40" id="form-field-1" placeholder="Sabit Gün Sayısı" class="col-xs-10 col-sm-5"/>
             <span asp-validation-for="DefaultDays"></span>
         </div>
     </div>

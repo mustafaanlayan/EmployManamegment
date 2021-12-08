@@ -4,14 +4,16 @@ using EmloyeManagement.Data.DataContext;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EmloyeManagement.Data.Migrations
 {
     [DbContext(typeof(MustafaEmployeManamegentContext))]
-    partial class MustafaEmployeManamegentContextModelSnapshot : ModelSnapshot
+    [Migration("20211208204902_EmployeeLeaveTypeAddColumnIsActive")]
+    partial class EmployeeLeaveTypeAddColumnIsActive
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -21,10 +23,10 @@ namespace EmloyeManagement.Data.Migrations
 
             modelBuilder.Entity("EmloyeManagement.Data.DbModel.EmployeeLeaveAllocation", b =>
             {
-                //b.Property<int>("Id")
-                //    .ValueGeneratedOnAdd()
-                //    .HasColumnType("int");
-                //        //.UseIdentityColumn();
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
+                        //.UseIdentityColumn();
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
@@ -52,10 +54,10 @@ namespace EmloyeManagement.Data.Migrations
 
             modelBuilder.Entity("EmloyeManagement.Data.DbModel.EmployeeLeaveRequest", b =>
             {
-                //b.Property<int>("Id")
-                //    .ValueGeneratedOnAdd()
-                //    .HasColumnType("int");
-                //        //.UseIdentityColumn();
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
+                        //.UseIdentityColumn();
 
                     b.Property<bool?>("Approved")
                         .HasColumnType("bit");
@@ -97,10 +99,10 @@ namespace EmloyeManagement.Data.Migrations
 
             modelBuilder.Entity("EmloyeManagement.Data.DbModel.EmployeeLeaveType", b =>
             {
-                //b.Property<int>("Id")
-                //    .ValueGeneratedOnAdd()
-                //    .HasColumnType("int");
-                //        //.UseIdentityColumn();
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
+                        //.UseIdentityColumn();
 
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
@@ -148,10 +150,10 @@ namespace EmloyeManagement.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
             {
-                //b.Property<int>("Id")
-                //    .ValueGeneratedOnAdd()
-                //    .HasColumnType("int");
-                //        //.UseIdentityColumn();
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
+                        //.UseIdentityColumn();
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
@@ -243,10 +245,10 @@ namespace EmloyeManagement.Data.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
             {
-                //b.Property<int>("Id")
-                //    .ValueGeneratedOnAdd()
-                //    .HasColumnType("int");
-                //        //.UseIdentityColumn();
+                b.Property<int>("Id")
+                    .ValueGeneratedOnAdd()
+                    .HasColumnType("int");
+                        //.UseIdentityColumn();
 
                     b.Property<string>("ClaimType")
                         .HasColumnType("nvarchar(max)");
