@@ -40,7 +40,7 @@
                                                     <div class="hidden-sm hidden-xs btn-group">
 
                                                         
-                                                        <a class="btn btn-info" asp-action="Edit" asp-route-id="@item.Id"><i class="ace-icon fa fa-pencil bigger-120"></i>
+                                                        <a class="btn btn-info"asp-controller="EmployeeLeaveTypeConroller" asp-action="Edit" asp-route-id="@item.Id"><i class="ace-icon fa fa-pencil bigger-120"></i>
                                                         </a>
                                                         @* <button class="btn btn-xs btn-danger">
                                                             <i class="ace-icon fa fa-trash-o bigger-120"></i>
@@ -100,29 +100,27 @@
 @section Scripts {
 
     <script type="text/javascript">
-        $(document).ready(function() {
-
-            $("#btnRemove").on("click",
-                function() {
-                    var id = $("#btnRemove")(this).data("id");
-
-                    swal({
-                        title: "Silmek İstediğinize Eminmisiniz ?",
-                        text: "Silinen Data Geri Alınamaz...!",
-                        icon: "warning",
-                        buttons: true,
-                        dangerMode: true
-                    }).then((whillDelete) => {
-                        if (whillDelete) {
-                            $.ajax({
-                                type: "DELETE",
-                                url: "/EmployeeLeaveType/Delete" + id,
-                                success: function(data) {
-                                    if (data.success) {
-                                        toastr.success(data.message);
-                                    } else {
-                                        toastr.error(data.message);
-                                    }
+        $(document).ready(function () {
+            $("#btnRemove").on("click", function () {
+                var id = $("#btnRemove").data("id");
+                swal({
+                    title: 'Silmek İstediğinize Emin Misiniz?',
+                    text: 'Silinen Data Geri Alınamaz!',
+                    icon: 'warning',
+                    buttons: true,
+                    dangerMode: true
+                }).then((willDelete) => {
+                    if (willDelete) {
+                        $.ajax({
+                            type: "DELETE",
+                            url: "/EmployeeLeaveTypesController/Delete/" + id,
+                            success: function (data) {
+                                if (data.success) {
+                                    toastr.success(data.message);
+                                   
+                                } else {
+                                    toastr.error(data.message);
+                                }
                                 }
                             });
                         }
