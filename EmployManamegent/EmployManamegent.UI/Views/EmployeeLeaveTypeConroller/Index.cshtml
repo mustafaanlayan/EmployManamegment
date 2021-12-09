@@ -113,7 +113,7 @@
                     if (willDelete) {
                         $.ajax({
                             type: "DELETE",
-                            url: "/EmployeeLeaveTypesController/Delete/" + id,
+                            url: "/EmployeeLeaveTypeConroller/Delete/" + id,
                             success: function (data) {
                                 if (data.success) {
                                     toastr.success(data.message);
